@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // InitializeWordBank(new List<string> { "Test", "Test", "Test", "Test","Test", "Test", "Test", "Test", "Test", "Test", "Test", "Test"});
-        InitializeWordBank(new List<string> { "Test"});
+        InitializeWordBank(new List<string> { "Test", "Test", "Test", "Test","Test", "Test", "Test", "Test", "Test", "Test", "Test", "Test"});
+        // InitializeWordBank(new List<string> { "Test"});
     }
 
     // Update is called once per frame
