@@ -8,6 +8,8 @@ public class CharacterAnimationHandler : MonoBehaviour
 
     [SerializeField] float moveSpeed;
 
+    [SerializeField] bool manualAnim; // are we testing animations?
+
     public enum States
     {
         Idle, GetHit, Taunt, Defeated, Twerk,
@@ -21,7 +23,8 @@ public class CharacterAnimationHandler : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(PlayAnimation());
+        if (!manualAnim)
+            StartCoroutine(PlayAnimation());
     }
 
     // runs to play animation
