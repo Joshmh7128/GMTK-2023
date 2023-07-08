@@ -2,14 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform), typeof(CanvasGroup))]
 public class DraggableObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     private RectTransform _rectTransform;
     private CanvasGroup _canvasGroup;
-    private Transform _returnTransform;
+    [SerializeField] private Transform _returnTransform;
+    private int _currentSibilingIndex;
+    private GameObject _placeHolderObject = null;
 
+    [SerializeField] private GameObject _clonePrefab;
+
+    public Transform ReturnTransform
+    {
+        get => _returnTransform;
+        set
+        {
+            _returnTransform = value;
+        }
+    }
+
+
+    public int CurrentSiblingIndex
+    {
+        get => _currentSibilingIndex;
+        set
+        {
+            _currentSibilingIndex = value;
+        }
+    }
 
     [SerializeField] private Canvas _renderCanvas;
     private void Awake() 
@@ -27,19 +50,32 @@ public class DraggableObject : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         _canvasGroup.alpha = 0.6f;
         _canvasGroup.blocksRaycasts = false;
         Debug.Log("Begin Item position: " + _rectTransform.position);
+
+        _placeHolderObject = Instantiate(_clonePrefab, _rectTransform.position, _rectTransform.rotation);
+        _placeHolderObject.transform.SetParent(_rectTransform.parent);
+
+        ReturnTransform = _placeHolderObject.GetComponent<RectTransform>();
+        // DummyTransform = transform.parent;
+        // CurrentSiblingIndex = transform.GetSiblingIndex();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-       _rectTransform.anchoredPosition += eventData.delta / _renderCanvas.scaleFactor;
+       // _rectTransform.anchoredPosition += eventData.delta / _renderCanvas.scaleFactor;
+       _rectTransform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        Debug.Log("Exit Drag hit");
         _canvasGroup.alpha = 1.0f;
         _canvasGroup.blocksRaycasts = true;
-        Debug.Log("End Item position: " + _rectTransform.anchoredPosition);
+
+        _rectTransform.position = ReturnTransform.position;
+        Destroy(_placeHolderObject);
+
     }
+
 
     /* private DragManager _dragManager;
     private Vector2 _centerPoint;

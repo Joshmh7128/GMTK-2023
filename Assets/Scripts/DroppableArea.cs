@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DroppableArea : MonoBehaviour, IDropHandler
+public class DroppableArea : MonoBehaviour, IDropHandler // s, IPointerEnterHandler, IPointerExitHandler
 {
     private RectTransform _rectTransform;
-    private bool _hasObject = false;
+
     private void Awake() 
     {
         
@@ -17,11 +16,17 @@ public class DroppableArea : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null)
         {
             _rectTransform = GetComponent<RectTransform>();
-            Debug.Log("Anchor Position: " + _rectTransform.anchoredPosition);
-            eventData.pointerDrag.GetComponent<RectTransform>().transform.position = _rectTransform.transform.position;
+             var drag = eventData.pointerDrag.GetComponent<DraggableObject>();
+            var ogReturn = drag.ReturnTransform;
+           
+            drag.ReturnTransform = _rectTransform;
+            var dragTransform = eventData.pointerDrag.GetComponent<RectTransform>();
+            dragTransform.SetParent(_rectTransform);
 
-            eventData.pointerDrag.GetComponent<RectTransform>().transform.SetParent(transform);
-            //_hasObject = true;
-        }
+            /* var ;
+            dragTransform.position = _rectTransform.position;*/
+        }   
     }
+    
+
 }
