@@ -10,13 +10,15 @@ public class CharacterAnimationHandler : MonoBehaviour
 
     [SerializeField] bool manualAnim; // are we testing animations?
 
+    Vector3 startRot; // our euler rotation at the start of play
+
     public enum States
     {
-        Idle, GetHit, Taunt, Defeated, 
+        Idle, Taunt, Defeated, Angry, Brooklyn, Texting,
 
         Max,
 
-        Death, Twerk,
+        Death, Twerk, GetHit,
     }
 
     [SerializeField] States targetState; // use this to set states
@@ -25,6 +27,8 @@ public class CharacterAnimationHandler : MonoBehaviour
     {
         if (!manualAnim)
             StartCoroutine(PlayAnimation());
+
+        startRot = transform.eulerAngles;
     }
 
     // runs to play animation
@@ -34,7 +38,7 @@ public class CharacterAnimationHandler : MonoBehaviour
         RequestAnimation((States)Random.Range(0, (int)States.Max));
 
         // wait random time
-        yield return new WaitForSecondsRealtime(Random.Range(3f, 6f));
+        yield return new WaitForSecondsRealtime(Random.Range(4f, 10f));
 
         // do it again
         StartCoroutine(PlayAnimation());
@@ -61,7 +65,15 @@ public class CharacterAnimationHandler : MonoBehaviour
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") || animator.GetCurrentAnimatorStateInfo(0).IsName("Idle 1"))
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.zero, moveSpeed * Time.deltaTime);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, moveSpeed * Time.deltaTime);
+            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, startRot, moveSpeed * Time.deltaTime);
         }
+        else
+        {
+            transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, moveSpeed/5 * Time.deltaTime);
+            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, startRot, moveSpeed/5 * Time.deltaTime);
+        }
+
+
     }
 }
