@@ -10,7 +10,7 @@ public class CharacterAnimationHandler : MonoBehaviour
 
     public enum States
     {
-        Idle, GetHit, Taunt, Defeated, Death
+        Idle, GetHit, Taunt, Defeated, Death, Twerk
     }
 
     [SerializeField] States targetState; // use this to set states
