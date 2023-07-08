@@ -67,19 +67,26 @@
     <Compile Include="Assets\Scripts\IdleCameraSway.cs" />
     <Compile Include="Assets\Scripts\DummyCameraEditorCheck.cs" />
     <Compile Include="Assets\Scripts\HeroItemManager.cs" />
+    <Compile Include="Assets\FlatKit\[Render Pipeline] URP\Water\Scripts\Buoyancy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\FlatKit\Shaders\StylizedSurface\LibraryUrp\LitForwardPass_DR.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\FlatKit\Shaders\StylizedSurface\LibraryUrp\TerrainLitPasses_DR.hlsl" />
     <None Include="Assets\Stylized Grass Shader\Shaders\Libraries\Bending.hlsl" />
     <None Include="Assets\Stylized Grass Shader\Shaders\Bending\GrassBendMesh.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\FlatKit\Shaders\StylizedSurface\LibraryUrp\StylizedInput.hlsl" />
+    <None Include="Assets\FlatKit\Shaders\GradientSkybox\GradientSkybox.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Stylized Grass Shader\Shaders\Libraries\Color.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\FlatKit\Shaders\StylizedSurface\LibraryUrp\Lighting_DR.hlsl" />
     <None Include="Assets\Stylized Grass Shader\Shaders\ShadowPass.hlsl" />
     <None Include="Assets\Stylized Grass Shader\Shaders\StylizedGrassShader.shader" />
+    <None Include="Assets\FlatKit\Shaders\StylizedSurface\StylizedSurfaceOutline.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -97,13 +104,18 @@
     <None Include="Assets\Stylized Grass Shader\Shaders\DepthPass.hlsl" />
     <None Include="Assets\Stylized Grass Shader\Shaders\Bending\Common.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\FlatKit\Shaders\StylizedSurface\TerrainLitAdd_DR.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Stylized Grass Shader\Changelog.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\FlatKit\Shaders\StylizedSurface\StylizedSurface.shader" />
+    <None Include="Assets\FlatKit\Shaders\LightPlane.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\FlatKit\Shaders\StylizedSurface\Terrain.shader" />
     <None Include="Assets\Stylized Grass Shader\Shaders\Libraries\Lighting.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\FlatKit\[Render Pipeline] URP\Water\Shaders\Water.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -862,6 +874,10 @@
     <ProjectReference Include="sc.stylizedgrass.editor.csproj">
       <Project>{D23189E8-1D8D-E522-0356-FFAB1722D10A}</Project>
       <Name>sc.stylizedgrass.editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FlatKit.Runtime.csproj">
+      <Project>{1326478F-A4DF-4080-9C78-270490AC5804}</Project>
+      <Name>FlatKit.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="FlatKit.Utils.Editor.csproj">
       <Project>{BFD2633E-FB9E-54C0-F474-3F5707F2056F}</Project>

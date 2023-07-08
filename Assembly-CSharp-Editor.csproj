@@ -58,7 +58,12 @@
     <Analyzer Include="F:\Unity\Editors\2022.3.4f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LowPolyWater_Pack\Scripts\Editor\GeneratePlane.cs" />
+    <Compile Include="Assets\FlatKit\Shaders\GradientSkybox\Editor\GradientSkyboxEditor.cs" />
+    <Compile Include="Assets\FlatKit\Shaders\Editor\StylizedSurfaceEditor.cs" />
+    <Compile Include="Assets\FlatKit\[Render Pipeline] URP\Water\Editor\Tooltips.cs" />
+    <Compile Include="Assets\FlatKit\[Render Pipeline] URP\Water\Editor\WaterEditor.cs" />
+    <Compile Include="Assets\FlatKit\Shaders\Editor\TerrainEditor.cs" />
+    <Compile Include="Assets\FlatKit\Shaders\Editor\Tooltips.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -869,6 +874,14 @@
     <ProjectReference Include="sc.stylizedgrass.editor.csproj">
       <Project>{D23189E8-1D8D-E522-0356-FFAB1722D10A}</Project>
       <Name>sc.stylizedgrass.editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FlatKit.Runtime.csproj">
+      <Project>{1326478F-A4DF-4080-9C78-270490AC5804}</Project>
+      <Name>FlatKit.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="FlatKit.Utils.Editor.csproj">
+      <Project>{BFD2633E-FB9E-54C0-F474-3F5707F2056F}</Project>
+      <Name>FlatKit.Utils.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
