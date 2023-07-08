@@ -863,6 +863,10 @@
       <Project>{D23189E8-1D8D-E522-0356-FFAB1722D10A}</Project>
       <Name>sc.stylizedgrass.editor</Name>
     </ProjectReference>
+    <ProjectReference Include="FlatKit.Utils.Editor.csproj">
+      <Project>{BFD2633E-FB9E-54C0-F474-3F5707F2056F}</Project>
+      <Name>FlatKit.Utils.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
