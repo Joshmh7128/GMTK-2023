@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\DroppableArea.cs" />
     <Compile Include="Assets\Scripts\IdleCameraSway.cs" />
     <Compile Include="Assets\Scripts\DummyCameraEditorCheck.cs" />
+    <Compile Include="Assets\Scripts\HeroItemManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
