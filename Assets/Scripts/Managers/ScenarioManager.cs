@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -8,13 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class ScenarioManager : MonoBehaviour
 {
-    public class Scenario
-    {
-        public string NarratorText { get; set; }
-        public string AnnoyedResponse { get; set; }
-        public string MildAnnoyedResponse { get; set; }
-        public string NonAnnoyedResponse { get; set; }
-    }
+    
+    // our list of scenarios
+    public Scenario ourScenario; // THIS IS FILLED ON EVERY INSTANCE MANUALLY
 
     private HashSet<string> AnnoyingTerms;
     private HashSet<string> MildAnnoyingTerms;
@@ -112,19 +109,24 @@ public class ScenarioManager : MonoBehaviour
     void Start()
     {
         SceneManager.activeSceneChanged += HandleActiveSceneChanged;
-        
+
+
+
+        /*
         _scenarioMap["Necromancer"] = new Scenario
         {
-            NarratorText = @"Despite warnings from the local population, our hero, who apparently knows no fear, makes their way into the old dungeon of an ancient necromancer 
-                            A necromancer so powerful in its ability to churn the dead that in another time might have served as the antagonist to our Hero. 
-                            Unfortunately, this is not that story. But the ancient necromancer will still prove formidable, able to imbue their skeletal army with the ability to (Verb). 
-                            Why is the hero nonchalantly wandering into someone else's property you might ask? Why to commit robbery of course! 
-                            The Ancient Necromancer wears pants that would allow our hero to (Verb) A skill necessary to save the kingdom!"
-        };
+            NarratorText = @"Despite warnings from the local population, our hero, who apparently knows no fear, makes their way into the old dungeon of an ancient necromancer. 
+ A necromancer so powerful in its ability to churn the dead that in another time might have served as the antagonist to our Hero. Unfortunately, this is not that story. 
+ But the ancient necromancer will still prove formidable, able to imbue their skeletal army with the ability to " + verbA +
+ "Why is the hero nonchalantly wandering into someone else's property you might ask? Why to commit robbery of course!" +
+ "The Ancient Necromancer wears pants that would allow our hero to " + verbA + "A skill necessary to save the kingdom!"
+        };*/
 
+        Debug.Log(ourScenario.NarratorText);
 
-        InstantiateScenarioUI(_scenarioMap[_currentScenario]);
+        InstantiateScenarioUI(ourScenario);
     }
+
 
     public void SubmitPlayerChoices()
     {
@@ -173,10 +175,13 @@ public class ScenarioManager : MonoBehaviour
 
     private Scenario GetScenarioFromScene(string sceneName)
     {
+        /*
         return new Scenario
         {
             NarratorText = @"Despite warnings from the local population, our hero, who apparently knows no fear, makes their way into the old dungeon of an ancient necromancer. A necromancer so powerful in its ability to churn the dead that in another time might have served as the antagonist to our Hero. Unfortunately, this is not that story. But the ancient necromancer will still prove formidable, able to imbue their skeletal army with the ability to (Verb). Why is the hero nonchalantly wandering into someone else's property you might ask? Why to commit robbery of course! The Ancient Necromancer wears pants that would allow our hero to (Verb) A skill necessary to save the kingdom!"
-        };
+        };*/
+
+        return null;
     }
 
     private void InstantiateScenarioUI(Scenario gameScenario)
@@ -223,4 +228,21 @@ public class ScenarioManager : MonoBehaviour
 
         Debug.Log("Response: " + responseText);
     }
+}
+
+[Serializable]
+public class Scenario : MonoBehaviour
+{
+    public List<string> inputs = new List<string>(); // our list of word drag inputs that we want to pull from (this is between 2 and 5!)
+
+    // 
+    public virtual string ProcessOutputText()
+    {
+        return "";
+    }
+
+    public string NarratorText { get; set; }
+    public string AnnoyedResponse { get; set; }
+    public string MildAnnoyedResponse { get; set; }
+    public string NonAnnoyedResponse { get; set; }
 }

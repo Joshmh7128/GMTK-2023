@@ -14,4 +14,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test_Dungeon.unity
     guid: 801d901a5034a488ea53544898ee1e5a
+  - enabled: 1
+    path: Assets/Scenes/Josh/Village.unity
+    guid: 1f25f107c591f9b488358c53dd7d47dc
+  - enabled: 1
+    path: Assets/Scenes/Josh/Magical Forest.unity
+    guid: e459c4c2633f5bb4197e58ea5616f12d
+  - enabled: 1
+    path: Assets/Scenes/Josh/Dungeon.unity
+    guid: c4fc84106feb4e44a8de36a57ab589e3
+  - enabled: 1
+    path: Assets/Scenes/Josh/Mushroom Lake.unity
+    guid: e2a890757e073c844b9ac37952b80a40
+  - enabled: 1
+    path: Assets/Scenes/Josh/Snowy Mountains.unity
+    guid: 30f2aa781b028e344aee6d3c8997e854
+  - enabled: 1
+    path: Assets/Scenes/Josh/Throne.unity
+    guid: 44eed4856f681744183e852d5e948aca
   m_configObjects: {}

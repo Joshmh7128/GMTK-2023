@@ -8,7 +8,7 @@ public class CharacterAnimationHandler : MonoBehaviour
 
     [SerializeField] float moveSpeed;
 
-    [SerializeField] bool manualAnim; // are we testing animations?
+    [SerializeField] bool manualAnim, canAnim; // are we testing animations?
 
     Vector3 startRot; // our euler rotation at the start of play
 
