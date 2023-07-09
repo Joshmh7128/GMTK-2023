@@ -10,6 +10,8 @@ public class PlayerWordManager : MonoBehaviour
     [SerializeField] private List<string> _playerVerbs;
     [SerializeField] private List<string> _playerAdjs;
 
+    [SerializeField] private float _annoyanceLevel;
+
     void Awake()
     {
         if (_instance == null)
@@ -28,6 +30,8 @@ public class PlayerWordManager : MonoBehaviour
         _playerNouns = new List<string>();
         _playerAdjs = new List<string>();
         _playerVerbs = new List<string>();
+
+        _annoyanceLevel = 0f;
         
     }
 
@@ -110,5 +114,24 @@ public class PlayerWordManager : MonoBehaviour
         }
 
         return words;
-    } 
+    }
+
+    public void UpdateAnnoyanceLevel (float annoyingScore)
+    {
+        if (annoyingScore < 0) // -1
+        {
+            _annoyanceLevel += 1;
+        }
+        else if (annoyingScore > 0 && annoyingScore <= 0.5)
+        {
+            _annoyanceLevel += 1;
+        }
+
+        Debug.Log("Player annoyed level: " + _annoyanceLevel);
+    }
+
+    public bool GetFinalPlayerAnnoyedLevel()
+    {
+        return _annoyanceLevel >= 4;
+    }
 }
