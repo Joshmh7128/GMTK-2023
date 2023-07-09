@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\CharacterAnimationHandler.cs" />
     <Compile Include="Assets\Scripts\WordBankItem.cs" />
     <Compile Include="Assets\Scenarios\MountainsA_Scenario.cs" />
+    <Compile Include="Assets\Scripts\HeroItemHandler.cs" />
     <Compile Include="Assets\Scenarios\ThroneA_Scenario.cs" />
     <Compile Include="Assets\Scripts\Managers\LoadSceneManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />

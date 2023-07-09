@@ -27,7 +27,6 @@ public class ScenarioManager : MonoBehaviour
     private string nounLiteral = "(Noun)";
     private string adjLiteral = "(Adjective)";
 
-
     private const float ANNOYING_SCORE = -1f;
     private const float MILD_SCORE = 0.5f;
     private const float GOOD_SCORE = 1.0f;
@@ -146,6 +145,10 @@ public class ScenarioManager : MonoBehaviour
 
     public void SubmitPlayerChoices()
     {
+        // also enable any items
+        FindAnyObjectByType<HeroItemHandler>().m_Items[(int)_currentScenario.ItemToEnable] = true;
+        FindAnyObjectByType<HeroItemHandler>().GiveItem(_currentScenario.ItemToEnable);
+
         continueButton.onClick.AddListener(() => ContinueScenario());
 
 
@@ -290,6 +293,10 @@ public class ScenarioManager : MonoBehaviour
 [Serializable]
 public class Scenario: MonoBehaviour
 {
+
+    public HeroItemManager.Items ItemToEnable; // the item we are enabling
+
+
     protected List<string> _inputs;
     public List<string> Inputs { get => _inputs; }
     public string NarratorText { get; set; }

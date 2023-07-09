@@ -115,6 +115,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1d7e94dfa164b941b6ee37047101663, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8419164736085700645}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1d7e94dfa164b941b6ee37047101663, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8532566889186726112}
   m_SourcePrefab: {fileID: 100100000, guid: e1d7e94dfa164b941b6ee37047101663, type: 3}
 --- !u!95 &984461483318550492 stripped
 Animator:
@@ -141,7 +144,39 @@ MonoBehaviour:
   animator: {fileID: 984461483318550492}
   moveSpeed: 3
   manualAnim: 0
+  canAnim: 0
   targetState: 0
+--- !u!114 &8532566889186726112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765310080086712092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ecc3006f0c19944388a9b1998323017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helmetObj: {fileID: 0}
+  chestPlateObj: {fileID: 0}
+  swordObj: {fileID: 0}
+  pants:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  testItem: 0
 --- !u!4 &6577980407981819302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e1d7e94dfa164b941b6ee37047101663, type: 3}
