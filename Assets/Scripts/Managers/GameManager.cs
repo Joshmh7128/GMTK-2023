@@ -35,4 +35,9 @@ public class GameManager : MonoBehaviour
     {
         LoadSceneManager.LoadScene("WordDraftScene");
     }
+
+    public void Quit()
+    {
+        Application.Quit();        
+    }
 }

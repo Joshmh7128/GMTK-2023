@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sc.stylizedgrass.editor", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{283ecb3c-1d83-d551-abf3-7334f9f3fbaf}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatKit.Utils.Editor", "FlatKit.Utils.Editor.csproj", "{d9931655-0f3d-0cc7-1346-e7d4fe048e23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{3a9ecf5b-7f7a-68ab-900e-17cf0757c755}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatKit.Runtime", "FlatKit.Runtime.csproj", "{0e5262d1-ba0d-8667-6da5-d062e0803dc6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +24,12 @@ Global
 		{90c11dcd-97f2-d0ea-d384-0e11540014c4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{283ecb3c-1d83-d551-abf3-7334f9f3fbaf}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{283ecb3c-1d83-d551-abf3-7334f9f3fbaf}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{d9931655-0f3d-0cc7-1346-e7d4fe048e23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{d9931655-0f3d-0cc7-1346-e7d4fe048e23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3a9ecf5b-7f7a-68ab-900e-17cf0757c755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3a9ecf5b-7f7a-68ab-900e-17cf0757c755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0e5262d1-ba0d-8667-6da5-d062e0803dc6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0e5262d1-ba0d-8667-6da5-d062e0803dc6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
