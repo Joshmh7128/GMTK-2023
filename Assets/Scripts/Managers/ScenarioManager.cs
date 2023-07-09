@@ -21,7 +21,7 @@ public class ScenarioManager : MonoBehaviour
 
     private GameManager _gameManager;
 
-    private Scenario _currentScenario;
+    public Scenario _currentScenario;
 
     private string verbLiteral = "(Verb)";
     private string nounLiteral = "(Noun)";
@@ -105,6 +105,14 @@ public class ScenarioManager : MonoBehaviour
         var rand = new System.Random();
         var scenarioIndex = rand.Next(0, 2);
         _currentScenario = SceneScenarios[scenarioIndex];
+
+        // activate the correct NPC
+        try
+        {
+            FindObjectOfType<CharacterSelectionHandler>().CheckScenario(scenarioIndex);
+        }
+        catch { }
+
         InstantiateScenarioUI(_currentScenario);
     }
 
