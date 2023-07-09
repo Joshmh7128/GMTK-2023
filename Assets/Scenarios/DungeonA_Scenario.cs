@@ -8,7 +8,7 @@ public class DungeonA_Scenario : Scenario
     {
         NarratorText = "Hearing rumors of a even more legendary sword which would hold the power to (Verb) its foes, Our hero enters an ancient crypt."
         + "Apparently the sword previously provided was not up to snuff. The crypt is filled with with countless skeletons, each frothing at the chance" +
-        "to (Verb) any soul foolish enough to enter these decrepit halls. If there hero is to make it out alive, they must remain ever vigilant.";
+        "to (Verb) any soul foolish enough to enter these decrepit halls. If the hero is to make it out alive, they must remain ever vigilant.";
 
         AnnoyedResponse = "Rather than wasting their oh-so valuable time. Our hero laments that they were in fact a foolish soul." +
         "Foolish enough to waste their time for a sword that might not have even been all that.";
