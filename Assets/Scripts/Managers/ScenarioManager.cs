@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScenarioManager : MonoBehaviour
 {
@@ -104,6 +105,9 @@ public class ScenarioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        // find and setup our button
+        
 
 
         var scenarioIndex = 0;
@@ -222,6 +226,10 @@ public class ScenarioManager : MonoBehaviour
 
     private void InstantiateScenarioUI(Scenario gameScenario)
     {
+        // setup the button
+        Button submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
+        submitButton.onClick.AddListener(() => SubmitPlayerChoices());
+
         var scenarioText = GameObject.FindWithTag("ScenarioText").GetComponent<TMP_Text>();
         scenarioText.text = gameScenario.NarratorText.Replace("\n","");
 

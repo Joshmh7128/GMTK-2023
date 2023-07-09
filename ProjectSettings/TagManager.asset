@@ -13,6 +13,7 @@ TagManager:
   - ScenarioText
   - HeroResponse
   - ResponseText
+  - SubmitButton
   layers:
   - Default
   - TransparentFX
