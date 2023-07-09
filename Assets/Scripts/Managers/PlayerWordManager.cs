@@ -122,7 +122,7 @@ public class PlayerWordManager : MonoBehaviour
         {
             _annoyanceLevel += 1;
         }
-        else if (annoyingScore > 0 && annoyingScore <= 0.5)
+        else if (annoyingScore >= 0 && annoyingScore <= 0.5)
         {
             _annoyanceLevel += 1;
         }
