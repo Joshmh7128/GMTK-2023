@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -40,6 +39,9 @@ public class ScenarioManager : MonoBehaviour
 
     [SerializeField]
     private GameObject _wordBankUI;
+
+    // submission button for continuing play
+    [SerializeField] Button continueButton;
 
     private PlayerWordManager _playerManager;
 
@@ -106,8 +108,7 @@ public class ScenarioManager : MonoBehaviour
     void Start()
     {
 
-        // find and setup our button
-        
+        // find and setup our continue button
 
 
         var scenarioIndex = 0;
@@ -145,6 +146,9 @@ public class ScenarioManager : MonoBehaviour
 
     public void SubmitPlayerChoices()
     {
+        continueButton.onClick.AddListener(() => ContinueScenario());
+
+
         if (SceneManager.GetActiveScene().name.Equals("Throne"))
         {
            ContinueScenario();
@@ -181,16 +185,18 @@ public class ScenarioManager : MonoBehaviour
 
     public void ContinueScenario()
     {
-       var currentIndex = SceneManager.GetActiveScene().buildIndex;
-       if (currentIndex < SceneManager.sceneCountInBuildSettings - 1)
-       {
+
+
+        var currentIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
             currentIndex++;
             SceneManager.LoadScene(currentIndex, LoadSceneMode.Single);
-       }
-       else
-       {
+        }
+        else
+        {
             SceneManager.LoadScene("EndGame");
-       }
+        }
     }
 
     public float CalculateAnnoyingScore(List<string> chosenWords)

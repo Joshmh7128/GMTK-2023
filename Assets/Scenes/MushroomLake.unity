@@ -9500,6 +9500,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 576720415139600250, guid: 68388f7c4a4243845aae829e834108cb, type: 3}
   m_PrefabInstance: {fileID: 1482370771}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1482370775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3667420435528193234, guid: 68388f7c4a4243845aae829e834108cb, type: 3}
+  m_PrefabInstance: {fileID: 1482370771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1525501104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14604,6 +14615,7 @@ MonoBehaviour:
   _responseText: {fileID: 1482370772}
   _responsePanel: {fileID: 1482370773}
   _wordBankUI: {fileID: 1482370774}
+  continueButton: {fileID: 1482370775}
 --- !u!4 &2117518584
 Transform:
   m_ObjectHideFlags: 0
