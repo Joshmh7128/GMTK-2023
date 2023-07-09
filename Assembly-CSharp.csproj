@@ -41,30 +41,49 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/CharacterAnimationHandler.cs" />
+     <Compile Include="Assets/Scenarios/LakeA_Scenario.cs" />
+     <Compile Include="Assets/Scenarios/VillageB_Scenario.cs" />
      <Compile Include="Assets/Scripts/WordBankItem.cs" />
+     <Compile Include="Assets/Scenarios/ForestB_Scenario.cs" />
+     <Compile Include="Assets/Scenarios/MountainsA_Scenario.cs" />
      <Compile Include="Assets/Scripts/Managers/ScenarioManager.cs" />
      <Compile Include="Assets/Scripts/DraggableObject.cs" />
      <Compile Include="Assets/Scripts/Managers/WordBankManager.cs" />
+     <Compile Include="Assets/Scenarios/ThroneA_Scenario.cs" />
      <Compile Include="Assets/Scripts/Managers/LoadSceneManager.cs" />
+     <Compile Include="Assets/Scenarios/ThroneB_Scenario.cs" />
      <Compile Include="Assets/Scripts/WordBankContainer.cs" />
      <Compile Include="Assets/Scripts/Managers/GameManager.cs" />
      <Compile Include="Assets/Scripts/DroppableArea.cs" />
      <Compile Include="Assets/Scenarios/DungeonA_Scenario.cs" />
+     <Compile Include="Assets/Scenarios/MountainsB_Scenario.cs" />
      <Compile Include="Assets/Scripts/IdleCameraSway.cs" />
      <Compile Include="Assets/Scripts/Managers/PlayerWordManager.cs" />
+     <Compile Include="Assets/Scenarios/LakeB_Scenario.cs" />
      <Compile Include="Assets/Scripts/DummyCameraEditorCheck.cs" />
+     <Compile Include="Assets/Scenarios/ForestA_Scenario.cs" />
+     <Compile Include="Assets/Scenarios/VillageA_Scenario.cs" />
+     <Compile Include="Assets/Scripts/HeroItemManager.cs" />
+     <Compile Include="Assets/FlatKit/[Render Pipeline] URP/Water/Scripts/Buoyancy.cs" />
+     <Compile Include="Assets/Scenarios/DungeonB_Scenario.cs" />
      <Compile Include="Assets/Scripts/InitializeWordBank.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets/FlatKit/Shaders/StylizedSurface/LibraryUrp/LitForwardPass_DR.hlsl" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+     <None Include="Assets/FlatKit/Shaders/StylizedSurface/LibraryUrp/TerrainLitPasses_DR.hlsl" />
      <None Include="Assets/Stylized Grass Shader/Shaders/Libraries/Bending.hlsl" />
      <None Include="Assets/Stylized Grass Shader/Shaders/Bending/GrassBendMesh.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
+     <None Include="Assets/FlatKit/Shaders/StylizedSurface/LibraryUrp/StylizedInput.hlsl" />
+     <None Include="Assets/FlatKit/Shaders/GradientSkybox/GradientSkybox.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
      <None Include="Assets/Stylized Grass Shader/Shaders/Libraries/Color.hlsl" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets/FlatKit/Shaders/StylizedSurface/LibraryUrp/Lighting_DR.hlsl" />
      <None Include="Assets/Stylized Grass Shader/Shaders/ShadowPass.hlsl" />
      <None Include="Assets/Stylized Grass Shader/Shaders/StylizedGrassShader.shader" />
+     <None Include="Assets/FlatKit/Shaders/StylizedSurface/StylizedSurfaceOutline.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
@@ -82,13 +101,18 @@
      <None Include="Assets/Stylized Grass Shader/Shaders/DepthPass.hlsl" />
      <None Include="Assets/Stylized Grass Shader/Shaders/Bending/Common.hlsl" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets/FlatKit/Shaders/StylizedSurface/TerrainLitAdd_DR.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
      <None Include="Assets/Stylized Grass Shader/Changelog.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
      <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
+     <None Include="Assets/FlatKit/Shaders/StylizedSurface/StylizedSurface.shader" />
+     <None Include="Assets/FlatKit/Shaders/LightPlane.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
+     <None Include="Assets/FlatKit/Shaders/StylizedSurface/Terrain.shader" />
      <None Include="Assets/Stylized Grass Shader/Shaders/Libraries/Lighting.hlsl" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
+     <None Include="Assets/FlatKit/[Render Pipeline] URP/Water/Shaders/Water.shader" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2022.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -797,11 +821,11 @@
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
         <HintPath>/Users/dotunoseni-adegbite/Unity/GMTK-2023/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-        <HintPath>/Users/dotunoseni-adegbite/Unity/GMTK-2023/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
         <HintPath>/Users/dotunoseni-adegbite/Unity/GMTK-2023/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
+        <HintPath>/Users/dotunoseni-adegbite/Unity/GMTK-2023/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
         <HintPath>/Users/dotunoseni-adegbite/Unity/GMTK-2023/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
@@ -845,6 +869,14 @@
     <ProjectReference Include="sc.stylizedgrass.editor.csproj">
       <Project>{90c11dcd-97f2-d0ea-d384-0e11540014c4}</Project>
       <Name>sc.stylizedgrass.editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FlatKit.Runtime.csproj">
+      <Project>{0e5262d1-ba0d-8667-6da5-d062e0803dc6}</Project>
+      <Name>FlatKit.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="FlatKit.Utils.Editor.csproj">
+      <Project>{d9931655-0f3d-0cc7-1346-e7d4fe048e23}</Project>
+      <Name>FlatKit.Utils.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -88,7 +88,7 @@ public class PlayerWordManager : MonoBehaviour
         SaveVerbSelections();
         SaveAdjSelections();
 
-        SceneManager.LoadScene("Test_Dungeon", LoadSceneMode.Single);
+        SceneManager.LoadScene("Village", LoadSceneMode.Single);
     }
 
     public List<string> GetWordsByTag (string tag)

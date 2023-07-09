@@ -11,6 +11,8 @@ TagManager:
   - AdjBank
   - PlayerWordBank
   - ScenarioText
+  - HeroResponse
+  - ResponseText
   layers:
   - Default
   - TransparentFX

@@ -12,24 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/WordDraftScene.unity
     guid: d955cb56cd3b6477eaef3857dd5e99cd
   - enabled: 1
-    path: Assets/Scenes/Test_Dungeon.unity
-    guid: 801d901a5034a488ea53544898ee1e5a
-  - enabled: 1
-    path: Assets/Scenes/Josh/Village.unity
+    path: Assets/Scenes/Village.unity
     guid: 1f25f107c591f9b488358c53dd7d47dc
   - enabled: 1
-    path: Assets/Scenes/Josh/Magical Forest.unity
-    guid: e459c4c2633f5bb4197e58ea5616f12d
+    path: Assets/Scenes/MagicalForest.unity
+    guid: f2e60816184194b738855ebec34fea41
   - enabled: 1
-    path: Assets/Scenes/Josh/Dungeon.unity
-    guid: c4fc84106feb4e44a8de36a57ab589e3
+    path: Assets/Scenes/Dungeon.unity
+    guid: 801d901a5034a488ea53544898ee1e5a
   - enabled: 1
-    path: Assets/Scenes/Josh/Mushroom Lake.unity
+    path: Assets/Scenes/MushroomLake.unity
     guid: e2a890757e073c844b9ac37952b80a40
   - enabled: 1
-    path: Assets/Scenes/Josh/Snowy Mountains.unity
+    path: Assets/Scenes/SnowyMountains.unity
     guid: 30f2aa781b028e344aee6d3c8997e854
   - enabled: 1
-    path: Assets/Scenes/Josh/Throne.unity
+    path: Assets/Scenes/Throne.unity
     guid: 44eed4856f681744183e852d5e948aca
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 711f1887e3ca44f119521894e29059b4
   m_configObjects: {}
