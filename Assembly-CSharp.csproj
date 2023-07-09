@@ -49,6 +49,7 @@
      <Compile Include="Assets/Scripts/WordBankContainer.cs" />
      <Compile Include="Assets/Scripts/Managers/GameManager.cs" />
      <Compile Include="Assets/Scripts/DroppableArea.cs" />
+     <Compile Include="Assets/Scenarios/DungeonA_Scenario.cs" />
      <Compile Include="Assets/Scripts/IdleCameraSway.cs" />
      <Compile Include="Assets/Scripts/Managers/PlayerWordManager.cs" />
      <Compile Include="Assets/Scripts/DummyCameraEditorCheck.cs" />
