@@ -6,6 +6,9 @@ TagManager:
   tags:
   - WordBank
   - WordDropZone
+  - NounBank
+  - VerbBank
+  - AdjBank
   layers:
   - Default
   - TransparentFX
