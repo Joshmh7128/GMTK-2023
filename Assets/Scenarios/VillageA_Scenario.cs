@@ -7,10 +7,10 @@ public class VillageA_Scenario : Scenario
     void Awake()
     {
         NarratorText = "Our hero would not be a hero if they weren't able to protect the innocent. Fortunately for them their chance to prove themselves is nigh at hand!"
-        + "The (Adjective) village: Tora Town, just left of middle of nowhere and just right of the sticks." 
-        + " With the kingdom preoccupied they've come under the harassment of a party of slimes. Slimes who (Verb) any human they see."
+        + " The (Adjective) village: Tora Town, just left of middle of nowhere and just right of the sticks." 
+        + " With the kingdom preoccupied they've come under the harassment of a party of slimes. Slimes who (Verb) any human they see.\n"
         + " \"There's only way to defeat these slimes,\" an elder of the village tells the Hero. \"You must take this (Noun) and use it to (Verb) the slimes.\""
-        + "When the Hero questioned why the villagers could not do this, the elder had to leave citing \"I left my keys back at my hut.\"";
+        + " When the Hero questioned why the villagers could not do this, the elder had to leave citing \"I left my keys back at my hut.\"";
 
         AnnoyedResponse = "Things to not have on a Hero resume: Lost or gave up to a group of slimes. Our hero is truly making themselves out to be the greatest ever!";
 
@@ -25,8 +25,8 @@ public class VillageA_Scenario : Scenario
     {
         NarratorText = "Our hero would not be a hero if they weren't able to protect the innocent. Fortunately for them their chance to prove themselves is nigh at hand!"
         + "The " + Inputs[0] + " village: Tora Town, just left of middle of nowhere and just right of the sticks." 
-        + " With the kingdom preoccupied they've come under the harassment of a party of slimes. Slimes who " + Inputs[1] + " any human they see."
+        + " With the kingdom preoccupied they've come under the harassment of a party of slimes. Slimes who " + Inputs[1] + " any human they see.\n"
         + " \"There's only way to defeat these slimes,\" an elder of the village tells the Hero. \"You must take this " + Inputs[2] + " and use it to " + Inputs[3] + " the slimes.\""
-        + "When the Hero questioned why the villagers could not do this, the elder had to leave citing \"I left my keys back at my hut.\"";
+        + " When the Hero questioned why the villagers could not do this, the elder had to leave citing \"I left my keys back at my hut.\"";
     }
 }
