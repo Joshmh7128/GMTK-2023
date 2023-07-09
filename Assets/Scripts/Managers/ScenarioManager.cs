@@ -1,11 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScenarioManager : MonoBehaviour
 {
@@ -21,12 +21,11 @@ public class ScenarioManager : MonoBehaviour
 
     private GameManager _gameManager;
 
-    private Scenario _currentScenario;
+    public Scenario _currentScenario;
 
     private string verbLiteral = "(Verb)";
     private string nounLiteral = "(Noun)";
     private string adjLiteral = "(Adjective)";
-
 
     private const float ANNOYING_SCORE = -1f;
     private const float MILD_SCORE = 0.5f;
@@ -39,6 +38,9 @@ public class ScenarioManager : MonoBehaviour
 
     [SerializeField]
     private GameObject _wordBankUI;
+
+    // submission button for continuing play
+    [SerializeField] Button continueButton;
 
     private PlayerWordManager _playerManager;
 
@@ -104,27 +106,52 @@ public class ScenarioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _playerManager = GameObject.FindGameObjectWithTag("PlayerWordBank").GetComponent<PlayerWordManager>();
+
+        // find and setup our continue button
+
+
+        var scenarioIndex = 0;
+
+        // in case of testing
+        try
+        {
+            _playerManager = GameObject.FindGameObjectWithTag("PlayerWordBank").GetComponent<PlayerWordManager>();
+        } catch { }
+
         var currentSceneName = SceneManager.GetActiveScene().name;
         if (currentSceneName.Equals("Throne"))
         {
             var playerAnnoyed = _playerManager.GetFinalPlayerAnnoyedLevel();
-            var scenarioIndex = playerAnnoyed ? 0 : 1;
+            scenarioIndex = playerAnnoyed ? 0 : 1;
             _currentScenario = SceneScenarios[scenarioIndex];
         }
         else
         {
             var rand = new System.Random();
-            var scenarioIndex = rand.Next(0, 2);
+            scenarioIndex = rand.Next(0, 2);
             _currentScenario = SceneScenarios[scenarioIndex];
         }
-       
+
+        // activate the correct NPC
+        try
+        {
+            FindObjectOfType<CharacterSelectionHandler>().CheckScenario(scenarioIndex);
+        }
+        catch { }
+
         InstantiateScenarioUI(_currentScenario);
     }
 
 
     public void SubmitPlayerChoices()
     {
+        // also enable any items
+        FindAnyObjectByType<HeroItemHandler>().m_Items[(int)_currentScenario.ItemToEnable] = true;
+        FindAnyObjectByType<HeroItemHandler>().GiveItem(_currentScenario.ItemToEnable);
+
+        continueButton.onClick.AddListener(() => ContinueScenario());
+
+
         if (SceneManager.GetActiveScene().name.Equals("Throne"))
         {
            ContinueScenario();
@@ -161,16 +188,18 @@ public class ScenarioManager : MonoBehaviour
 
     public void ContinueScenario()
     {
-       var currentIndex = SceneManager.GetActiveScene().buildIndex;
-       if (currentIndex < SceneManager.sceneCountInBuildSettings - 1)
-       {
+
+
+        var currentIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
             currentIndex++;
             SceneManager.LoadScene(currentIndex, LoadSceneMode.Single);
-       }
-       else
-       {
+        }
+        else
+        {
             SceneManager.LoadScene("EndGame");
-       }
+        }
     }
 
     public float CalculateAnnoyingScore(List<string> chosenWords)
@@ -206,6 +235,10 @@ public class ScenarioManager : MonoBehaviour
 
     private void InstantiateScenarioUI(Scenario gameScenario)
     {
+        // setup the button
+        Button submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
+        submitButton.onClick.AddListener(() => SubmitPlayerChoices());
+
         var scenarioText = GameObject.FindWithTag("ScenarioText").GetComponent<TMP_Text>();
         scenarioText.text = gameScenario.NarratorText.Replace("\n","");
 
@@ -260,6 +293,10 @@ public class ScenarioManager : MonoBehaviour
 [Serializable]
 public class Scenario: MonoBehaviour
 {
+
+    public HeroItemManager.Items ItemToEnable; // the item we are enabling
+
+
     protected List<string> _inputs;
     public List<string> Inputs { get => _inputs; }
     public string NarratorText { get; set; }

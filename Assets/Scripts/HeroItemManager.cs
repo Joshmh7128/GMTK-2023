@@ -9,7 +9,7 @@ public class HeroItemManager : MonoBehaviour
 
     public enum Items
     {
-        none, helmet, chestPlate, sword, pants
+        none, helmet, chestPlate, sword, pants, max
     }
 
     public Items testItem;
@@ -22,6 +22,8 @@ public class HeroItemManager : MonoBehaviour
 
     public void EnableItem(Items item)
     {
+        Debug.Log("Enabling item... " + item);
+
         switch ((int)item)
         {
             case (int)Items.helmet:

@@ -29,7 +29,10 @@ public class WordBankManager : MonoBehaviour
         }
         else if (_requiresPrepopulation)
         {
-            _playerWordManager = GameObject.FindWithTag("PlayerWordBank").GetComponent<PlayerWordManager>();
+            try
+            {
+                _playerWordManager = GameObject.FindWithTag("PlayerWordBank").GetComponent<PlayerWordManager>();
+            } catch { Debug.LogWarning("No Word Bank Found!"); }
             var tag = _wordBankTransform.gameObject.tag;
 
             var playerWords = _playerWordManager.GetWordsByTag(tag);
