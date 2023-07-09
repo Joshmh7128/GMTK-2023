@@ -58,15 +58,15 @@
     <Analyzer Include="F:\Unity\Editors\2022.3.4f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Stylized Grass Shader\Editor\ColorMapInspector.cs" />
     <Compile Include="Assets\Stylized Grass Shader\Editor\ShaderConfigurator.cs" />
     <Compile Include="Assets\Stylized Grass Shader\Editor\StylizedGrassGUI.cs" />
     <Compile Include="Assets\Stylized Grass Shader\Editor\MaterialUI.cs" />
     <Compile Include="Assets\Stylized Grass Shader\Editor\StylizedGrassRendererInspector.cs" />
     <Compile Include="Assets\Stylized Grass Shader\Editor\ColorMapEditor.cs" />
     <Compile Include="Assets\Stylized Grass Shader\Editor\AssetInfo.cs" />
-    <Compile Include="Assets\Stylized Grass Shader\Editor\GrassBenderInspector.cs" />
     <Compile Include="Assets\Stylized Grass Shader\Editor\GrassColorMapRendererInspector.cs" />
+    <Compile Include="Assets\Stylized Grass Shader\Editor\ColorMapInspector.cs" />
+    <Compile Include="Assets\Stylized Grass Shader\Editor\GrassBenderInspector.cs" />
     <Compile Include="Assets\Stylized Grass Shader\Editor\StylizedGrassEditor.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -361,6 +361,9 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.5\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections.LowLevel.ILSupport">
+      <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
