@@ -7,9 +7,9 @@ public class MountainsB_Scenario : Scenario
    void Awake()
     {
         NarratorText = "Resisting the temptation to curl into a small pathetic ball and keep warm, our dedicated hero heads onward through the mountain pass.\n"
-        + " \"The cold is only temporary,\" the Hero says. \"The glory will be forever.\" Oh how vain.\n"
-        + " Rounding the path, the Hero can see the castle in the horizon, perhaps one more days travel. "
-        + "Suddenly, a Troll jumps erupts in a puff a smoke, blocking the hero's pass.\n"
+        + "\"The cold is only temporary,\" the Hero says. \"The glory will be forever.\" Oh how vain.\n"
+        + " Rounding the path, the Hero can see the castle in the horizon, perhaps one more days travel."
+        + " Suddenly, a Troll jumps erupts in a puff a smoke, blocking the hero's pass.\n"
         + "Not to be dismayed by a troll, our hero pulls out his trusty (Noun)! With it the Hero (Verb)s the troll.";
 
         AnnoyedResponse = "The Hero will try to deny that the Troll was too cumbersome to defeat, but the hero is not the one telling this story, so everyone will know.";
