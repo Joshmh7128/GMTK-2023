@@ -40,6 +40,8 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     private GameObject _wordBankUI;
 
+    private PlayerWordManager _playerManager;
+
     void Awake()
     {
         AnnoyingTerms = new HashSet<string>
@@ -102,9 +104,29 @@ public class ScenarioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var rand = new System.Random();
-        var scenarioIndex = rand.Next(0, 2);
-        _currentScenario = SceneScenarios[scenarioIndex];
+
+
+        var scenarioIndex = 0;
+
+        // in case of testing
+        try
+        {
+            _playerManager = GameObject.FindGameObjectWithTag("PlayerWordBank").GetComponent<PlayerWordManager>();
+        } catch { }
+
+        var currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName.Equals("Throne"))
+        {
+            var playerAnnoyed = _playerManager.GetFinalPlayerAnnoyedLevel();
+            scenarioIndex = playerAnnoyed ? 0 : 1;
+            _currentScenario = SceneScenarios[scenarioIndex];
+        }
+        else
+        {
+            var rand = new System.Random();
+            scenarioIndex = rand.Next(0, 2);
+            _currentScenario = SceneScenarios[scenarioIndex];
+        }
 
         // activate the correct NPC
         try
@@ -119,29 +141,38 @@ public class ScenarioManager : MonoBehaviour
 
     public void SubmitPlayerChoices()
     {
-        var dropZoneObject= GameObject.FindWithTag("WordDropZone");
-        var chosenWords = dropZoneObject.GetComponentsInChildren<WordBankItem>();
-        var playerInputs = new List<string>();
-
-        foreach (var word in chosenWords)
+        if (SceneManager.GetActiveScene().name.Equals("Throne"))
         {
-            var playerWord = word.Word;
-            playerInputs.Add(playerWord);
+           ContinueScenario();
         }
+        else
+        {
+            var dropZoneObject= GameObject.FindWithTag("WordDropZone");
+            var chosenWords = dropZoneObject.GetComponentsInChildren<WordBankItem>();
+            var playerInputs = new List<string>();
 
-        _currentScenario.UpdateInputs(playerInputs);
-        _currentScenario.ProcessOutputText();
+            foreach (var word in chosenWords)
+            {
+                var playerWord = word.Word;
+                playerInputs.Add(playerWord);
+            }
 
-        var scenarioText = GameObject.FindWithTag("ScenarioText").GetComponent<TMP_Text>();
-        scenarioText.text = _currentScenario.NarratorText.Replace("\n","");
+            _currentScenario.UpdateInputs(playerInputs);
+            _currentScenario.ProcessOutputText();
 
-        var annoyingScore = CalculateAnnoyingScore(playerInputs);
+            var scenarioText = GameObject.FindWithTag("ScenarioText").GetComponent<TMP_Text>();
+            scenarioText.text = _currentScenario.NarratorText.Replace("\n","");
 
-        var heroResponse = DetermineResponse(annoyingScore);
+            var annoyingScore = CalculateAnnoyingScore(playerInputs);
 
-        _responsePanel.SetActive(true);
-        _wordBankUI.SetActive(false);
-        _responseText.text = heroResponse;
+            var heroResponse = DetermineResponse(annoyingScore);
+
+            _playerManager.UpdateAnnoyanceLevel(annoyingScore);
+
+            _responsePanel.SetActive(true);
+            _wordBankUI.SetActive(false);
+            _responseText.text = heroResponse;
+        }
     }
 
     public void ContinueScenario()
@@ -194,25 +225,31 @@ public class ScenarioManager : MonoBehaviour
         var scenarioText = GameObject.FindWithTag("ScenarioText").GetComponent<TMP_Text>();
         scenarioText.text = gameScenario.NarratorText.Replace("\n","");
 
-        int literalCount = 0;
-        
-        var verbCount = Regex.Matches(gameScenario.NarratorText, verbLiteral).Cast<Match>().Count();
-        var nounCount = Regex.Matches(gameScenario.NarratorText, nounLiteral).Cast<Match>().Count();
-        var adjCount = Regex.Matches(gameScenario.NarratorText, adjLiteral).Cast<Match>().Count();
-
-        literalCount += (verbCount + nounCount + adjCount);
-        Debug.Log("Literal Count: " + literalCount);
-
-        var dropZoneTransform = GameObject.FindWithTag("WordDropZone").transform;
-        for (int i = 0; i < literalCount; i++)
+        if (SceneManager.GetActiveScene().name.Equals("Throne"))
         {
-            var dropAreaObject = Instantiate(_wordDropPrefab, dropZoneTransform.position, Quaternion.identity);
-            var originalScale = dropAreaObject.transform.localScale;
-
-            dropAreaObject.transform.SetParent(dropZoneTransform.transform);
-            dropAreaObject.transform.localScale = originalScale;
+            _wordBankUI.SetActive(false);
         }
+        else
+        {
+            int literalCount = 0;
+        
+            var verbCount = Regex.Matches(gameScenario.NarratorText, verbLiteral).Cast<Match>().Count();
+            var nounCount = Regex.Matches(gameScenario.NarratorText, nounLiteral).Cast<Match>().Count();
+            var adjCount = Regex.Matches(gameScenario.NarratorText, adjLiteral).Cast<Match>().Count();
 
+            literalCount += (verbCount + nounCount + adjCount);
+            Debug.Log("Literal Count: " + literalCount);
+
+            var dropZoneTransform = GameObject.FindWithTag("WordDropZone").transform;
+            for (int i = 0; i < literalCount; i++)
+            {
+                var dropAreaObject = Instantiate(_wordDropPrefab, dropZoneTransform.position, Quaternion.identity);
+                var originalScale = dropAreaObject.transform.localScale;
+
+                dropAreaObject.transform.SetParent(dropZoneTransform.transform);
+                dropAreaObject.transform.localScale = originalScale;
+            }
+        }
     }
 
     private string DetermineResponse(float annoyingScore)
