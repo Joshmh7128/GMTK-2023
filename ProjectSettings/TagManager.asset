@@ -6,6 +6,11 @@ TagManager:
   tags:
   - WordBank
   - WordDropZone
+  - NounBank
+  - VerbBank
+  - AdjBank
+  - PlayerWordBank
+  - ScenarioText
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Josh/Dungeon.unity
-    guid: c4fc84106feb4e44a8de36a57ab589e3
+    path: Assets/Scenes/TitleScene.unity
+    guid: dad6b6c1273234ee6a5a2eebfa9dcba6
+  - enabled: 1
+    path: Assets/Scenes/WordDraftScene.unity
+    guid: d955cb56cd3b6477eaef3857dd5e99cd
+  - enabled: 1
+    path: Assets/Scenes/Test_Dungeon.unity
+    guid: 801d901a5034a488ea53544898ee1e5a
   m_configObjects: {}
