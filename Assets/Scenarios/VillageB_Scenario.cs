@@ -22,6 +22,9 @@ public class VillageB_Scenario : Scenario
 
     public override void ProcessOutputText ()
     {
+        if (Inputs.Count <= 0)
+            return;
+            
         NarratorText = "Slimes have a nasty habit of harassing the outlying villages of the kingdom. Especially " 
         + Inputs[0] + " slimes who have a taste for causing chaos for poor innocent villagers."
         + " Subjecting them to all kinds of heinous deeds, like " + Inputs[1] + "ing them.\n"

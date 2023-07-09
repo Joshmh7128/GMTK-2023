@@ -23,6 +23,9 @@ public class DungeonA_Scenario : Scenario
 
     public override void ProcessOutputText ()
     {
+        if (Inputs.Count <= 0)
+            return;
+        
         NarratorText = "Hearing rumors of a even more legendary sword which would hold the power to"+ Inputs[0] + "its foes, Our hero enters an ancient crypt."
         + "Apparently the sword previously provided was not up to snuff. The crypt is filled with with countless skeletons, each frothing at the chance to"
         + Inputs[1] + "any soul foolish enough to enter these decrepit halls. If there hero is to make it out alive, they must remain ever vigilant.";

@@ -23,6 +23,9 @@ public class VillageA_Scenario : Scenario
 
     public override void ProcessOutputText ()
     {
+        if (Inputs.Count <= 0)
+            return;
+
         NarratorText = "Our hero would not be a hero if they weren't able to protect the innocent. Fortunately for them their chance to prove themselves is nigh at hand!"
         + "The " + Inputs[0] + " village: Tora Town, just left of middle of nowhere and just right of the sticks." 
         + " With the kingdom preoccupied they've come under the harassment of a party of slimes. Slimes who " + Inputs[1] + " any human they see.\n"

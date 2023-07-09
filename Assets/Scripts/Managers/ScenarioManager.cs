@@ -276,7 +276,7 @@ public class ScenarioManager : MonoBehaviour
         {
             responseText = _currentScenario.AnnoyedResponse;
         }
-        else if (annoyingScore > 0 && annoyingScore <= MILD_SCORE)
+        else if (annoyingScore >= 0 && annoyingScore <= MILD_SCORE)
         {
             responseText = _currentScenario.MildAnnoyedResponse;
         }

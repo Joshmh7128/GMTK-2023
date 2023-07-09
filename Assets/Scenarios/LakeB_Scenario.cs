@@ -23,6 +23,9 @@ public class LakeB_Scenario : Scenario
 
     public override void ProcessOutputText ()
     {
+        if (Inputs.Count <= 0)
+            return;
+
         NarratorText = "From a distance, the mushrooms surrounding the lake are true sight to behold. The same can not be said for seeing them up close."
         + " They puff out spores with whimsical side effects, most notably they " + Inputs[0] + " anyone who breathe them in.\n"
         + " But the mushroom spores are the least of anyone traversing the lake's problems. Deep between the fungal growths " +  Inputs[1] + " slimes stroll, patrolling their territory."

@@ -22,6 +22,9 @@ public class MountainsA_Scenario : Scenario
 
     public override void ProcessOutputText ()
     {
+        if (Inputs.Count <= 0)
+            return;
+
         NarratorText = "Nearing the end of their quest, our hero summits the perilous Waka-Gloria Mountains, the remnants of continents clashing."
         + " Trying to stay warm our hero searches for a the helm of " +  Inputs[0] + ": A helmet said to grant the wearer the ability to" + Inputs[1] + "\n"
         + " Believed to be housed in a shrine on the tallest peak, our hero must make every effort to stay warm."

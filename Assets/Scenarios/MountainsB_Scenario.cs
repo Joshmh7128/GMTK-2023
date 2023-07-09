@@ -23,6 +23,9 @@ public class MountainsB_Scenario : Scenario
 
     public override void ProcessOutputText ()
     {
+        if (Inputs.Count <= 0)
+            return;
+
         NarratorText = "Resisting the temptation to curl into a small pathetic ball and keep warm, our dedicated hero heads onward through the mountain pass.\n"
         + " \"The cold is only temporary,\" the Hero says. \"The glory will be forever.\" Oh how vain.\n"
         + " Rounding the path, the Hero can see the castle in the horizon, perhaps one more days travel. "

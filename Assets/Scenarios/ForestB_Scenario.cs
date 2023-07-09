@@ -22,6 +22,9 @@ public class ForestB_Scenario : Scenario
 
     public override void ProcessOutputText ()
     {
+        if (Inputs.Count <= 0)
+            return;
+
         NarratorText = "In any quest, the adventurer must eventually encounter their first goblin horde."
         + " Thinking themselves exempt from this rule, our hero haphazardly journeys into the serene forest."
         + " Without a care in the world they " + Inputs[0] + " along the forest path. Everything was going swimmingly, until our " + Inputs[1] + 

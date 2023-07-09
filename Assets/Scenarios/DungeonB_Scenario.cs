@@ -23,6 +23,9 @@ public class DungeonB_Scenario : Scenario
 
     public override void ProcessOutputText ()
     {
+        if (Inputs.Count <= 0)
+            return;
+
         NarratorText = "Despite warnings from the local population, our hero, who apparently knows no fear, makes their way into the old dungeon of an ancient necromancer."
         + "A necromancer so powerful in its ability to churn the dead that in another time might have served as the antagonist to our Hero." +
         " Unfortunately, this is not that story. But the ancient necromancer will still prove formidable, able to imbue their skeletal army with the ability to " + Inputs[0]
