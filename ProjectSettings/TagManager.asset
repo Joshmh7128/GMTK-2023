@@ -9,6 +9,8 @@ TagManager:
   - NounBank
   - VerbBank
   - AdjBank
+  - PlayerWordBank
+  - ScenarioText
   layers:
   - Default
   - TransparentFX

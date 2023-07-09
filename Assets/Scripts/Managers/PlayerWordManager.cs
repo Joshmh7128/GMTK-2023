@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerWordManager : MonoBehaviour
 {
     private static PlayerWordManager _instance;
-    private List<string> _playerNouns;
-    private List<string> _playerVerbs;
-    private List<string> _playerAdjs;
+    [SerializeField] private List<string> _playerNouns;
+    [SerializeField] private List<string> _playerVerbs;
+    [SerializeField] private List<string> _playerAdjs;
 
     void Awake()
     {
@@ -49,11 +50,6 @@ public class PlayerWordManager : MonoBehaviour
                 _playerNouns.Add(child.Word);
             }
         }
-
-        foreach (var word in _playerNouns)
-        {
-            Debug.Log("Noun " + word);
-        }
     }
 
     private void SaveVerbSelections()
@@ -68,11 +64,6 @@ public class PlayerWordManager : MonoBehaviour
             {
                 _playerVerbs.Add(child.Word);
             }
-        }
-
-        foreach (var word in _playerVerbs)
-        {
-            Debug.Log("Verb " + word);
         }
     }
 
@@ -89,11 +80,6 @@ public class PlayerWordManager : MonoBehaviour
                 _playerAdjs.Add(child.Word);
             }
         }
-
-        foreach (var word in _playerAdjs)
-        {
-            Debug.Log("Adj: " + word);
-        }
     }
 
     public void SubmitWordBankSelection()
@@ -101,5 +87,28 @@ public class PlayerWordManager : MonoBehaviour
         SaveNounSelections();
         SaveVerbSelections();
         SaveAdjSelections();
+
+        SceneManager.LoadScene("Test_Dungeon", LoadSceneMode.Single);
     }
+
+    public List<string> GetWordsByTag (string tag)
+    {
+        var words = new List<string>();
+        switch(tag)
+        {
+            case "NounBank":
+                words = _playerNouns;
+                break;
+            case "VerbBank":
+                words = _playerVerbs;
+                break;
+            case "AdjBank":
+                words = _playerAdjs;
+                break;
+            default:
+                break;
+        }
+
+        return words;
+    } 
 }

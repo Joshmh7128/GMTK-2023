@@ -42,6 +42,7 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/CharacterAnimationHandler.cs" />
      <Compile Include="Assets/Scripts/WordBankItem.cs" />
+     <Compile Include="Assets/Scripts/Managers/ScenarioManager.cs" />
      <Compile Include="Assets/Scripts/DraggableObject.cs" />
      <Compile Include="Assets/Scripts/Managers/WordBankManager.cs" />
      <Compile Include="Assets/Scripts/Managers/LoadSceneManager.cs" />

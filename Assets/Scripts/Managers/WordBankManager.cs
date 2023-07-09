@@ -14,13 +14,26 @@ public class WordBankManager : MonoBehaviour
     private bool _prepopulateWordBank = false;
 
     [SerializeField]
+    private bool _requiresPrepopulation = false;
+
+    [SerializeField]
     private List<string> _initialWordBankWords = new List<string>();
+
+    private PlayerWordManager _playerWordManager;
     // Start is called before the first frame update
     void Start()
     {
         if (_prepopulateWordBank)
         {
             InitializeWordBank(_initialWordBankWords);
+        }
+        else if (_requiresPrepopulation)
+        {
+            _playerWordManager = GameObject.FindWithTag("PlayerWordBank").GetComponent<PlayerWordManager>();
+            var tag = _wordBankTransform.gameObject.tag;
+
+            var playerWords = _playerWordManager.GetWordsByTag(tag);
+            InitializeWordBank(playerWords);
         }
     }
 
